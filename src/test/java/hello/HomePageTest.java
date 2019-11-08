@@ -15,7 +15,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.xpath;
 
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -26,31 +25,25 @@ public class HomePageTest {
 
     @Test
     public void getHomePage_ContentType() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
-                .andExpect(status().isOk())
+        mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML)).andExpect(status().isOk())
                 .andExpect(content().contentType("text/html;charset=UTF-8"));
     }
 
-
     @Test
     public void getHomePage_BootstrapLoaded() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
-                .andExpect(status().isOk())
+        mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML)).andExpect(status().isOk())
                 .andExpect(xpath(BootstrapLiterals.bootstrapCSSXpath).exists());
-        for (String s: BootstrapLiterals.bootstrapJSurls) {
-            String jsXPath = String.format("//script[@src='%s']",s);
-            mvc.perform(MockMvcRequestBuilders.get("/greeting").accept(MediaType.TEXT_HTML))
-              .andExpect(status().isOk())
-              .andExpect(xpath(jsXPath).exists());
+        for (String s : BootstrapLiterals.bootstrapJSurls) {
+            String jsXPath = String.format("//script[@src='%s']", s);
+            mvc.perform(MockMvcRequestBuilders.get("/greeting").accept(MediaType.TEXT_HTML)).andExpect(status().isOk())
+                    .andExpect(xpath(jsXPath).exists());
         }
     }
 
-
     @Test
     public void getHomePage_hasCorrectTitle() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
-                .andExpect(status().isOk())
+        mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML)).andExpect(status().isOk())
                 .andExpect(xpath("//title").exists())
-                .andExpect(xpath("//title").string("Getting Started: Serving Web Content"));
+                .andExpect(xpath("//title").string("CS56 Spring Boot Practice App"));
     }
 }
