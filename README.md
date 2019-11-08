@@ -4,7 +4,9 @@ A simple Spring Boot webapp using:
 - Pulling in Bootstrap from CDN.
 - Github OAuth
 
-Link to web page: <https://ucsb-cs56-f19.github.io/lab07-bobeatschicken/>
+Link to javadoc page: <https://ucsb-cs56-f19.github.io/lab07-bobeatschicken/>
+
+Link to heroku page: <https://cs56-f19-lab07-bobeatschicken.herokuapp.com/>
 
 # Running on Localhost.
 
