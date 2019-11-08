@@ -50,8 +50,9 @@ public class GithubOrgMembershipService implements MembershipService {
     }
 
     /**
-     * is current logged in user has role
+     * check role
      * 
+     * @param oauthToken oauth token
      * @param roleToTest "member" or "admin"
      * @return if the current logged in user has that role
      */
@@ -65,27 +66,27 @@ public class GithubOrgMembershipService implements MembershipService {
 
         Github github = null;
 
-        if (clientService==null) {
+        if (clientService == null) {
             logger.error(String.format("unable to obtain autowired clientService"));
             return false;
         }
         OAuth2AuthorizedClient client = clientService
                 .loadAuthorizedClient(oauthToken.getAuthorizedClientRegistrationId(), oauthToken.getName());
 
-        if (client==null) {
-            logger.info(String.format("clientService was not null but client returned was null for user %s",user));
+        if (client == null) {
+            logger.info(String.format("clientService was not null but client returned was null for user %s", user));
             return false;
         }
 
         OAuth2AccessToken token = client.getAccessToken();
 
-        if (token==null) {
-            logger.info(String.format("client for %s was not null but getAccessToken returned null",user));
+        if (token == null) {
+            logger.info(String.format("client for %s was not null but getAccessToken returned null", user));
             return false;
         }
         String accessToken = token.getTokenValue();
-        if (accessToken==null) {
-            logger.info(String.format("token was not null but getTokenValue returned null for user %s",user));
+        if (accessToken == null) {
+            logger.info(String.format("token was not null but getTokenValue returned null for user %s", user));
             return false;
         }
 
@@ -94,22 +95,21 @@ public class GithubOrgMembershipService implements MembershipService {
             // I forget why we have Github wrapped like this
             // TODO: find the tutorial that explains it
             // I think it has something to do with respecting rate limits
-            github = new RtGithub(new RtGithub(accessToken).entry()
-                    .through(RetryCarefulWire.class, 50));
+            github = new RtGithub(new RtGithub(accessToken).entry().through(RetryCarefulWire.class, 50));
 
             // logger.info("github=" + github);
             // User ghuser = github.users().get(user);
             // logger.info("ghuser=" + ghuser);
-            // JsonResponse jruser = github.entry().uri().path("/user").back().method(Request.GET).fetch()
-            //         .as(JsonResponse.class);
+            // JsonResponse jruser =
+            // github.entry().uri().path("/user").back().method(Request.GET).fetch()
+            // .as(JsonResponse.class);
             // logger.info("jruser =" + jruser);
             // Organization org = github.organizations().get(githubOrg);
             // logger.info("org =" + org);
 
-            String path = String.format("/user/memberships/orgs/%s",githubOrg);
+            String path = String.format("/user/memberships/orgs/%s", githubOrg);
 
-            JsonResponse jr = github.entry().uri().path(path).back()
-                    .method(Request.GET).fetch().as(JsonResponse.class);
+            JsonResponse jr = github.entry().uri().path(path).back().method(Request.GET).fetch().as(JsonResponse.class);
 
             logger.info("jr =" + jr);
 
@@ -123,7 +123,7 @@ public class GithubOrgMembershipService implements MembershipService {
             return actualRole.equals(roleToTest);
         } catch (Exception e) {
             logger.error("Exception happened while trying to determine membership in github org");
-            logger.error("Exception",e);
+            logger.error("Exception", e);
         }
         return false;
     }
