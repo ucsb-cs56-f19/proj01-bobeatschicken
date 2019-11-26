@@ -2,6 +2,8 @@ Link to GitHub Pages: https://ucsb-cs56-f19.github.io/lab07-bobeatschicken/
 
 Link to App running on Heroku: https://cs56-f19-lab07-bobeatschicken.herokuapp.com/
 
+Link to Travis-CI Page: https://travis-ci.org/ucsb-cs56-f19/lab07-bobeatschicken
+
 A simple Spring Boot webapp using:
 
 - Thymeleaf templating
