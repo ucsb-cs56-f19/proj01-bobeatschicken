@@ -18,7 +18,7 @@ public class EarthquakeQueryService {
 
     private Logger logger = LoggerFactory.getLogger(EarthquakeQueryService.class);
 
-    public String getJSON(int distance, int minmag, int lat, int lon) {
+    public String getJSON(int distance, int minmag, double lat, double lon) {
         RestTemplate restTemplate = new RestTemplate();
 
         HttpHeaders headers = new HttpHeaders();
