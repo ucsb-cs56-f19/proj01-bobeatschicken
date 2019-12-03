@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.List;
 import earthquakes.osm.Place;
 
 import com.nimbusds.oauth2.sdk.client.ClientReadRequest;
