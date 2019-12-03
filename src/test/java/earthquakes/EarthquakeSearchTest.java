@@ -46,13 +46,13 @@ public class EarthquakeSearchTest {
         principal = OAuthUtils.createOAuth2User("Chris Gaucho", "cgaucho@example.com");
     }
 
-    @Test
-    @WithMockUser
-    public void getEarthquakeSearch() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/earthquakes/search")
-                .with(authentication(OAuthUtils.getOauthAuthenticationFor(principal))).accept(MediaType.TEXT_HTML))
-                .andExpect(status().isOk());
-        // .andExpect(xpath("//title").exists())
-        // .andExpect(xpath("//title").string("Earthquake Search"));
-    }
+    // @Test
+    // @WithMockUser
+    // public void getEarthquakeSearch() throws Exception {
+    // mvc.perform(MockMvcRequestBuilders.get("/earthquakes/search")
+    // .with(authentication(OAuthUtils.getOauthAuthenticationFor(principal))).accept(MediaType.TEXT_HTML))
+    // .andExpect(status().isOk());
+    // // .andExpect(xpath("//title").exists())
+    // // .andExpect(xpath("//title").string("Earthquake Search"));
+    // }
 }
