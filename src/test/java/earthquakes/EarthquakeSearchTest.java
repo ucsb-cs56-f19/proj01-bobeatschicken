@@ -23,7 +23,7 @@ import org.junit.Before;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.authentication;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(WebController.class)
+@WebMvcTest(EarthquakesController.class)
 public class EarthquakeSearchTest {
 
     @Autowired
