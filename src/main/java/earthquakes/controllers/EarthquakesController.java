@@ -1,8 +1,8 @@
-package hello.controllers;
+package earthquakes.controllers;
 
-import hello.services.EarthquakeQueryService;
-import hello.searches.EqSearch;
-import hello.services.EarthquakeQueryService;
+import earthquakes.services.EarthquakeQueryService;
+import earthquakes.searches.EqSearch;
+import earthquakes.services.EarthquakeQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.client.registration.ClientRegistration;
@@ -13,7 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import java.util.Map;
 import java.util.HashMap;
-import hello.geojson.FeatureCollection;
+import earthquakes.geojson.FeatureCollection;
 
 import com.nimbusds.oauth2.sdk.client.ClientReadRequest;
 

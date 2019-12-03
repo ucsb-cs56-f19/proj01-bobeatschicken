@@ -1,4 +1,4 @@
-package hello;
+package earthquakes;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
