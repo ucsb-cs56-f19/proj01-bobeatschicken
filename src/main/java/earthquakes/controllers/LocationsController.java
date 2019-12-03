@@ -37,8 +37,8 @@ public class LocationsController {
         model.addAttribute("locSearch", locSearch);
         String json = l.getJSON(locSearch.getLocation());
         model.addAttribute("json", json);
-        Place place = Place.listFromJson(json);
-        model.addAttribute("place", place);
+        List<Place> places = Place.listFromJson(json);
+        model.addAttribute("places", places);
         return "locations/results";
     }
 }
