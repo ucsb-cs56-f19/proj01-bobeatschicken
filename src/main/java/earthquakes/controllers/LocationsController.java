@@ -12,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import java.util.Map;
 import java.util.HashMap;
-import earthquakes.geojson.FeatureCollection;
+import earthquakes.osm.Place;
 
 import com.nimbusds.oauth2.sdk.client.ClientReadRequest;
 
@@ -37,6 +37,8 @@ public class LocationsController {
         model.addAttribute("locSearch", locSearch);
         String json = l.getJSON(locSearch.getLocation());
         model.addAttribute("json", json);
+        Place place = Place.listFromJson(json);
+        model.addAttribute("place", place);
         return "locations/results";
     }
 }
