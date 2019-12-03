@@ -26,4 +26,28 @@ public class EqSearch {
     public void setMinmag(int minmag) {
         this.minmag = minmag;
     }
+
+    public int getLatitude() {
+        return this.lat;
+    }
+
+    public int getLongitude() {
+        return this.lon;
+    }
+
+    public String getLocation() {
+        return this.location;
+    }
+
+    public void setLatitude(int lat) {
+        this.lat = lat;
+    }
+
+    public void setLongitude(int lon) {
+        this.lon = lon;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 }
