@@ -3,6 +3,9 @@ package earthquakes.searches;
 public class EqSearch {
     private int distance;
     private int minmag;
+    private int lat;
+    private int lon;
+    private String location;
 
     public EqSearch() {
 
