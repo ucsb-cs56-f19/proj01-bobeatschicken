@@ -1,18 +1,14 @@
-Link to GitHub Pages: https://ucsb-cs56-f19.github.io/lab07-bobeatschicken/
+Link to GitHub Pages: https://ucsb-cs56-f19.github.io/proj01-bobeatschicken/
 
-Link to App running on Heroku: https://cs56-f19-lab07-bobeatschicken.herokuapp.com/
+Link to App running on Heroku: https://cs56-f19-proj01-bobeatschicken.herokuapp.com/
 
-Link to Travis-CI Page: https://travis-ci.org/ucsb-cs56-f19/lab07-bobeatschicken
+Link to Travis-CI Page: https://travis-ci.org/ucsb-cs56-f19/proj01-bobeatschicken
 
 A simple Spring Boot webapp using:
 
 - Thymeleaf templating
 - Pulling in Bootstrap from CDN.
 - Github OAuth
-
-Link to javadoc page: <https://ucsb-cs56-f19.github.io/lab07-bobeatschicken/>
-
-Link to heroku page: <https://cs56-f19-lab07-bobeatschicken.herokuapp.com/>
 
 # Running on Localhost.
 
