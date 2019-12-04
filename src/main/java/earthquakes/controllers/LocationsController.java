@@ -25,6 +25,7 @@ public class LocationsController {
     @Autowired
     private ClientRegistrationRepository clientRegistrationRepository;
 
+    @Autowired
     private LocationRepository locationRepository;
 
     @GetMapping("/locations")
