@@ -19,11 +19,11 @@ public class EqSearch {
         return this.minmag;
     }
 
-    public double getLatitude() {
+    public double getLat() {
         return this.lat;
     }
 
-    public double getLongitude() {
+    public double getLon() {
         return this.lon;
     }
 
@@ -39,11 +39,11 @@ public class EqSearch {
         this.minmag = minmag;
     }
 
-    public void setLatitude(double lat) {
+    public void setLat(double lat) {
         this.lat = lat;
     }
 
-    public void setLongitude(double lon) {
+    public void setLon(double lon) {
         this.lon = lon;
     }
 
