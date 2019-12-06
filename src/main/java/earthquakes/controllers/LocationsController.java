@@ -38,7 +38,7 @@ public class LocationsController {
 
         String uid = token.getPrincipal().getAttributes().get("id").toString();
 
-        Iterable<Location> locations = locationRepository.findByUid();
+        Iterable<Location> locations = locationRepository.findByUid(uid);
         model.addAttribute("locations", locations);
         return "locations/index";
     }
@@ -52,7 +52,7 @@ public class LocationsController {
 
         location.setUid(uid);
         locationRepository.save(location);
-        model.addAttribute("locations", locationRepository.findByUid());
+        model.addAttribute("locations", locationRepository.findByUid(uid));
         return "locations/index";
     }
 
@@ -64,7 +64,7 @@ public class LocationsController {
         Location location = locationRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid courseoffering Id:" + id));
         locationRepository.delete(location);
-        model.addAttribute("locations", locationRepository.findByUid());
+        model.addAttribute("locations", locationRepository.findByUid(uid));
         return "locations/index";
     }
 
